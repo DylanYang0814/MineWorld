@@ -22,8 +22,24 @@ public class Runner {
         for (int i = 0; i<map.length;i++)
         {
             for (int x = 0; x<map[i].length; x++) {
-                double chance = Math.random() * 100;
+                int chance = (int)(Math.random() * 100);
                 //System.out.println(chance);
+                if (0 <= chance && chance <= Uranium.getRarity())
+                {
+                    System.out.println("Uranium");
+                }
+                if (Uranium.getRarity() <= chance && chance <= Platnium.getRarity())
+                {
+                    System.out.println("Platinum");
+                }
+                if (Platnium.getRarity() <= chance && chance <= Iron.getRarity())
+                {
+                    System.out.println("Iron");
+                }
+                if (Iron.getRarity() <= chance && chance >= Stone1.getRarity())
+                {
+                    System.out.println("Stone");
+                }
 
             }
         }
