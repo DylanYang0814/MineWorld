@@ -1,4 +1,4 @@
 package Pickaxe;
 
-public class IronPick {
+public class IronPick implements Pickaxe{
 }

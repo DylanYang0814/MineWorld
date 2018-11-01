@@ -1,11 +1,10 @@
 package Ore;
 
-public class UraniumOre implements Ore{
-
+public class Stone implements Ore{
     private String type;
     private int rarity;
 
-    public UraniumOre(String type, int rarity)
+    public Stone(String type, int rarity)
     {
         this.type=type;
         this.rarity=rarity;

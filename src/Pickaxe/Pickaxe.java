@@ -1,4 +1,4 @@
 package Pickaxe;
 
-public class Pickaxe {
+interface Pickaxe {
 }

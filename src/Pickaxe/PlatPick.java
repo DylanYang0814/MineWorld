@@ -1,4 +1,4 @@
 package Pickaxe;
 
-public class PlatPick {
+public class PlatPick implements Pickaxe{
 }

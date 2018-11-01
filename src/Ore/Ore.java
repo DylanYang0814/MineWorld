@@ -1,4 +1,9 @@
 package Ore;
 
-public class Ore {
+import Game.Runner;
+
+interface Ore {
+
+    public String getType();
+    public int getRarity();
 }
