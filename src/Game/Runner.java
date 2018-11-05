@@ -1,14 +1,8 @@
 package Game;
 
-import Ore.IronOre;
-import Ore.PlatinumOre;
-import Ore.Stone;
-import Ore.UraniumOre;
 import People.Person;
 import Rooms.Room;
 import Rooms.WinningRoom;
-import Game.Cave;
-
 import java.util.Scanner;
 
 public class Runner {
@@ -18,42 +12,13 @@ public class Runner {
 
     public static void main(String[] args) {
         Room[][] Mineworld = new Room[8][8];
-
-        IronOre Iron = new IronOre("Iron", 30);
-        PlatinumOre Platinum = new PlatinumOre("Platinum", 7);
-        UraniumOre Uranium = new UraniumOre("Uranium", 3);
-        Stone Stone1 = new Stone("Stone", 60);
-
-        //Fill the Mineworld with normal rooms
-        for (int x = 0; x < Mineworld.length; x++) {
-            for (int y = 0; y < Mineworld[x].length; y++) {
-                //Mineworld[x][y] = new Room(x,y);
-                int chance = (int) (Math.random() * 100);
-                //System.out.println(chance);
-                if (0 <= chance && chance <= Uranium.getRarity()) {
-                    // System.out.println("Uranium");
-                    Mineworld[x][y] = new Room(x, y, "Uranium");
-                }
-                if (Uranium.getRarity() < chance && chance <= Platinum.getRarity()) {
-                    //System.out.println("Platinum");
-                    Mineworld[x][y] = new Room(x, y, "Platinum");
-                }
-                if (Platinum.getRarity() < chance && chance <= Iron.getRarity()) {
-                    // System.out.println("Iron");
-                    Mineworld[x][y] = new Room(x, y, "Iron");
-                }
-                if (Iron.getRarity() < chance) {
-                    //System.out.println("Stone");
-                    Mineworld[x][y] = new Room(x, y, "Stone");
-                }
-
-            }
-        }
-
+        Cave.GenerateCave(Mineworld);
+        //^
         //Create a random winning room.
         int x = (int) (Math.random() * Mineworld.length);
         int y = (int) (Math.random() * Mineworld.length);
         Mineworld[x][y] = new WinningRoom(x, y, "The Exit");
+        Mineworld[0][0] = new Room(0,0, "yourself at a cave.");
 
         //Setup player 1 and the input scanner
         Person player1 = new Person("FirstName", "FamilyName", 0, 0);
