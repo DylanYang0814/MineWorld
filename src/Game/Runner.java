@@ -1,8 +1,10 @@
 package Game;
 
+import Inventory.Items;
 import People.Person;
 import Rooms.Room;
 import Rooms.WinningRoom;
+
 import java.util.Scanner;
 
 public class Runner {
@@ -13,20 +15,24 @@ public class Runner {
     public static void main(String[] args) {
         Room[][] Mineworld = new Room[8][8];
         Cave.GenerateCave(Mineworld);
-        //^
+        //^Generate the cave
         //Create a random winning room.
         int x = (int) (Math.random() * Mineworld.length);
         int y = (int) (Math.random() * Mineworld.length);
-        Mineworld[x][y] = new WinningRoom(x, y, "The Exit");
-        Mineworld[0][0] = new Room(0,0, "yourself at a cave.");
-
+        Mineworld[x][y] = new WinningRoom(x, y, "the exit");
+        Mineworld[0][0] = new Room(0, 0, "yourself at a cave. You have nothing but a rusty pickaxe.");
+        String[] Inv = {"Rusty Pickaxe"};
         //Setup player 1 and the input scanner
-        Person player1 = new Person("FirstName", "FamilyName", 0, 0);
+        Person player1 = new Person(0, 0);
         Mineworld[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
         while (gameOn) {
-            System.out.println("Where would you like to move? (Choose N, S, E, W)");
+            System.out.println("Where would you like to move? (Choose N, S, E, W) or (Craft, Bag, or Map)");
             String move = in.nextLine();
+            if (move.equals("Bag"))
+            {
+                Items.showItem(Inv);
+            }
             if (validMove(move, player1, Mineworld)) {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
