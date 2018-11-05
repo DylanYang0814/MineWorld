@@ -29,8 +29,7 @@ public class Runner {
         while (gameOn) {
             System.out.println("Where would you like to move? (Choose N, S, E, W) or (Craft, Bag, or Map)");
             String move = in.nextLine();
-            if (move.equals("Bag"))
-            {
+            if (move.equals("Bag")) {
                 Items.showItem(Inv);
             }
             if (validMove(move, player1, Mineworld)) {
