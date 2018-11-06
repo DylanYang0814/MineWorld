@@ -12,7 +12,6 @@ public class Cave {
         IronOre Iron = new IronOre("Iron", 30);
         PlatinumOre Platinum = new PlatinumOre("Platinum", 7);
         UraniumOre Uranium = new UraniumOre("Uranium", 3);
-        Stone Stone1 = new Stone("Stone", 60);
 
         //Fill the Mineworld with random ores
         for (int x = 0; x < Mineworld.length; x++) {

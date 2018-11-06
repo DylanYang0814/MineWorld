@@ -1,5 +1,7 @@
 package Inventory;
 
+import Rooms.Room;
+
 public class Items {
     static int IronCount;
     static int PlatinumCount;
@@ -12,19 +14,18 @@ public class Items {
             Inv[length + 1] = Item;
         }
         if (java.util.Arrays.asList(Inv).indexOf(Item) != -1) {
-            addNum(Inv, Item);
+            addNum(Item);
         }
     }
 
-    public static void addNum(String[] Inv, String Item) {
-        int place = java.util.Arrays.asList(Inv).indexOf(Item);
-        if (Item.equals("Iron")) {
+    public static void addNum(String Item) {
+        if (Item.equalsIgnoreCase("Iron")) {
             IronCount++;
         }
-        if (Item.equals("Platinum")) {
+        if (Item.equalsIgnoreCase("Platinum")) {
             PlatinumCount++;
         }
-        if (Item.equals("Uranium")) {
+        if (Item.equalsIgnoreCase("Uranium")) {
             UraniumCount++;
         }
     }
@@ -32,17 +33,25 @@ public class Items {
     public static void showItem(String[] Inv) {
         String InvList = "";
         for (int x = 0; x < Inv.length; x++) {
-            if (Inv[x].equals("Iron")) {
+            if (Inv[x].equalsIgnoreCase("Iron")) {
                 InvList += "[" + Inv[x] + "x" + IronCount + "] ";
             }
-            if (Inv[x].equals("Platinum")) {
+            if (Inv[x].equalsIgnoreCase("Platinum")) {
                 InvList += "[" + Inv[x] + "x" + PlatinumCount + "] ";
             }
-            if (Inv[x].equals("Uranium")) {
+            if (Inv[x].equalsIgnoreCase("Uranium")) {
                 InvList += "[" + Inv[x] + "x" + UraniumCount + "] ";
             }
-            InvList += "[" + Inv[x] + "] ";
+            if (!Inv[x].equalsIgnoreCase("Uranium") && !Inv[x].equalsIgnoreCase("Iron") && !Inv[x].equalsIgnoreCase("Platinum")) {
+                InvList += "[" + Inv[x] + "] ";
+            }
         }
         System.out.println(InvList);
+    }
+    public static String toString(Room Map[][], int x, int y)
+    {
+        String out = "";
+        out += Map[x][y];
+        return out;
     }
 }

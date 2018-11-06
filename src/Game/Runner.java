@@ -33,6 +33,7 @@ public class Runner {
                 Items.showItem(Inv);
             }
             if (validMove(move, player1, Mineworld)) {
+                System.out.println(Items.toString(Mineworld, player1.getxLoc(), player1.getyLoc()));
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
             } else {
