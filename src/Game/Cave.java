@@ -37,11 +37,32 @@ public class Cave {
         String out = "";
         for (int i = 0; i < Mineworld.length; i++) {
             for (int x = 0; x < Mineworld[i].length; x++) {
-                out += (Mineworld[i][x]);
+                out += Cave.toString(Mineworld, i, x);
             }
             out += " /n ";
         }
         return out;
+    }
+
+    public static String toString(Room[][] Mineworld, int x,int y)
+    {
+        if (Mineworld[x][y].equals("Stone"))
+        {
+            return "Stone";
+        }
+        if (Mineworld[x][y].equals("Iron"))
+        {
+            return "Iron";
+        }
+        if (Mineworld[x][y].equals("Platinum"))
+        {
+            return "Platinum";
+        }
+        if (Mineworld[x][y].equals("Uranium"))
+        {
+            return "Uranium";
+        }
+        return null;
     }
 }
 
