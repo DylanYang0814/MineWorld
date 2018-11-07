@@ -32,4 +32,16 @@ public class Cave {
             }
         }
     }
+
+    public static String PrintBoard(Room[][] Mineworld) {
+        String out = "";
+        for (int i = 0; i < Mineworld.length; i++) {
+            for (int x = 0; x < Mineworld[i].length; x++) {
+                out += (Mineworld[i][x]);
+            }
+            out += " /n ";
+        }
+        return out;
+    }
 }
+

@@ -20,21 +20,23 @@ public class Runner {
         int x = (int) (Math.random() * Mineworld.length);
         int y = (int) (Math.random() * Mineworld.length);
         Mineworld[x][y] = new WinningRoom(x, y, "the exit");
-        Mineworld[0][0] = new Room(0, 0, "yourself at a cave. You have nothing but a rusty pickaxe.");
-        String[] Inv = {"Rusty Pickaxe"};
+        Mineworld[0][0] = new Room(0, 0, "Rusty Pickaxe");
         //Setup player 1 and the input scanner
         Person player1 = new Person(0, 0);
         Mineworld[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
+        System.out.println("Where would you like to move? (Choose N, S, E, W) or (Craft, Bag, or Map)");
         while (gameOn) {
             System.out.println("Where would you like to move? (Choose N, S, E, W) or (Craft, Bag, or Map)");
             String move = in.nextLine();
-            if (move.equals("Bag")) {
-                Items.showItem(Inv);
+            if (move.equalsIgnoreCase("Bag")) {
+                Items.showItem();
+            }
+            if (move.equalsIgnoreCase("Map")) {
+                System.out.println(Cave.PrintBoard(Mineworld));
             }
             if (validMove(move, player1, Mineworld)) {
-                System.out.println(Items.toString(Mineworld, player1.getxLoc(), player1.getyLoc()));
-                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                //System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
             } else {
                 System.out.println("Please choose a valid move.");

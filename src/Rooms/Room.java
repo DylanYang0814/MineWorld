@@ -1,5 +1,6 @@
 package Rooms;
 
+import Inventory.Items;
 import People.Person;
 
 public class Room {
@@ -23,7 +24,9 @@ public class Room {
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
+        Items.addItem(Ore);
     }
+
 
     /**
      * Removes the player from the room.
