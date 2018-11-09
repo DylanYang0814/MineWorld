@@ -16,8 +16,13 @@ public class Runner {
         Cave.GenerateCave();
         int x = (int) (Math.random() * Cave.mineworld.length);
         int y = (int) (Math.random() * Cave.mineworld.length);
+        while (x == 0 || y == 0) {
+            x = (int) (Math.random() * Cave.mineworld.length);
+            y = (int) (Math.random() * Cave.mineworld.length);
+        }
         Cave.mineworld[x][y] = new WinningRoom(x, y, "Exit", false);
         Person player1 = new Person(0, 0);
+        System.out.println("You woke up with a headache, in your hand is a rusty pickaxe \nThe pickaxe has a ancient inscription on it, you begin to mine your way out ");
         Game.Cave.mineworld[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
         while (gameOn) {
@@ -30,7 +35,6 @@ public class Runner {
                 System.out.println(Cave.PrintBoard());
             }
             if (validMove(move, player1, Cave.mineworld)) {
-                //System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
             } else {
                 System.out.println("Please choose a valid move.");
             }

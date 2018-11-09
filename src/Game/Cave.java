@@ -41,7 +41,7 @@ public class Cave {
             for (int x = 0; x < mineworld[i].length; x++) {
                 out += "[" + mineworld[i][x].toString() + "] ";
             }
-            out += " \n";
+            out += "\n";
         }
         return out;
     }
