@@ -17,4 +17,9 @@ public class PlatinumOre implements Ore {
     public int getRarity() {
         return rarity;
     }
+
+    public String toString()
+    {
+        return "Platinum";
+    }
 }

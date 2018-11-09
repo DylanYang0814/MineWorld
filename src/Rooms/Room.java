@@ -7,11 +7,13 @@ public class Room {
     Person occupant;
     int xLoc, yLoc;
     String Ore;
+    boolean hasExplored = false;
 
-    public Room(int x, int y, String Ore) {
+    public Room(int x, int y, String Ore, boolean hasExplored) {
         xLoc = x;
         yLoc = y;
         this.Ore = Ore;
+        this.hasExplored = hasExplored;
     }
 
     /**
@@ -25,6 +27,7 @@ public class Room {
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         Items.addItem(Ore);
+        hasExplored = true;
     }
 
 
@@ -35,6 +38,18 @@ public class Room {
      */
     public void leaveRoom(Person x) {
         occupant = null;
+    }
+
+    public String toString()
+    {
+        if (hasExplored) {
+            return Ore;
+        }
+        if (!hasExplored)
+        {
+            return " ";
+        }
+        return "";
     }
 
 }

@@ -17,4 +17,9 @@ public class IronOre implements Ore {
     public int getRarity() {
         return rarity;
     }
+
+    public String toString()
+    {
+        return "Iron";
+    }
 }

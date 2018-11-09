@@ -16,4 +16,9 @@ public class Stone implements Ore {
     public int getRarity() {
         return rarity;
     }
+
+    public String toString()
+    {
+        return "Stone";
+    }
 }

@@ -8,61 +8,58 @@ import Rooms.Room;
 
 public class Cave {
 
-    public static void GenerateCave(Room[][] Mineworld) {
+    static Room[][] mineworld = new Room[8][8];
+
+    public static void GenerateCave() {
         IronOre Iron = new IronOre("Iron", 30);
         PlatinumOre Platinum = new PlatinumOre("Platinum", 7);
         UraniumOre Uranium = new UraniumOre("Uranium", 3);
 
-        //Fill the Mineworld with random ores
-        for (int x = 0; x < Mineworld.length; x++) {
-            for (int y = 0; y < Mineworld[x].length; y++) {
+        //Fill the mineworld with random ores
+        for (int x = 0; x < mineworld.length; x++) {
+            for (int y = 0; y < mineworld[x].length; y++) {
                 int chance = (int) (Math.random() * 100);
                 if (0 <= chance && chance <= Uranium.getRarity()) {
-                    Mineworld[x][y] = new Room(x, y, "Uranium");
+                    mineworld[x][y] = new Room(x, y, "Uranium", false);
                 }
                 if (Uranium.getRarity() < chance && chance <= Platinum.getRarity()) {
-                    Mineworld[x][y] = new Room(x, y, "Platinum");
+                    mineworld[x][y] = new Room(x, y, "Platinum",false);
                 }
                 if (Platinum.getRarity() < chance && chance <= Iron.getRarity()) {
-                    Mineworld[x][y] = new Room(x, y, "Iron");
+                    mineworld[x][y] = new Room(x, y, "Iron",false);
                 }
                 if (Iron.getRarity() < chance) {
-                    Mineworld[x][y] = new Room(x, y, "Stone");
+                    mineworld[x][y] = new Room(x, y, "Stone",false);
                 }
             }
         }
     }
 
-    public static String PrintBoard(Room[][] Mineworld) {
+    public static String PrintBoard() {
         String out = "";
-        for (int i = 0; i < Mineworld.length; i++) {
-            for (int x = 0; x < Mineworld[i].length; x++) {
-                out += Cave.toString(Mineworld, i, x);
+        for (int i = 0; i < mineworld.length; i++) {
+            for (int x = 0; x < mineworld[i].length; x++) {
+                out += "[" + mineworld[i][x].toString() + "] ";
             }
-            out += " /n ";
+            out += " \n";
         }
         return out;
     }
 
-    public static String toString(Room[][] Mineworld, int x,int y)
-    {
-        if (Mineworld[x][y].equals("Stone"))
-        {
-            return "Stone";
-        }
-        if (Mineworld[x][y].equals("Iron"))
-        {
-            return "Iron";
-        }
-        if (Mineworld[x][y].equals("Platinum"))
-        {
-            return "Platinum";
-        }
-        if (Mineworld[x][y].equals("Uranium"))
-        {
-            return "Uranium";
-        }
-        return null;
-    }
+//    public static String toString(Room[][] mineworld, int x, int y) {
+//        if (mineworld[x][y].equals("Stone")) {
+//            return "Stone";
+//        }
+//        if (mineworld[x][y].equals("Iron")) {
+//            return "Iron";
+//        }
+//        if (mineworld[x][y].equals("Platinum")) {
+//            return "Platinum";
+//        }
+//        if (mineworld[x][y].equals("Uranium")) {
+//            return "Uranium";
+//        }
+//        return null;
+//    }
 }
 

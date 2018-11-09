@@ -5,8 +5,8 @@ import People.Person;
 
 public class WinningRoom extends Room {
 
-    public WinningRoom(int x, int y, String Ore) {
-        super(x, y, Ore);
+    public WinningRoom(int x, int y, String Ore, boolean hasExplored) {
+        super(x, y, Ore, hasExplored);
 
     }
 
@@ -21,7 +21,15 @@ public class WinningRoom extends Room {
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You found the winning room! Ten points for Gryffindor.");
+        System.out.println("You found the exit and left with expensive ores in your hand.");
+        Runner.gameOff();
+    }
+
+    public void enoughMaterial(Person x) {
+        occupant = x;
+        x.setxLoc(this.xLoc);
+        x.setyLoc(this.yLoc);
+        System.out.println("With the power gathered from the ores you collected, you teleported out.");
         Runner.gameOff();
     }
 

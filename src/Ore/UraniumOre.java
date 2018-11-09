@@ -17,4 +17,9 @@ public class UraniumOre implements Ore {
     public int getRarity() {
         return rarity;
     }
+
+    public String toString()
+    {
+        return "Uranium";
+    }
 }
