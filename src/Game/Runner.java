@@ -1,3 +1,4 @@
+//Dylan Yang APCSP Period 2-3
 package Game;
 
 import Inventory.Items;
@@ -21,6 +22,7 @@ public class Runner {
             y = (int) (Math.random() * Cave.mineworld.length);
         }
         Cave.mineworld[x][y] = new WinningRoom(x, y, "Exit", false);
+        //This generates the winning room or the "exit"
         Person player1 = new Person(0, 0);
         System.out.println("You woke up with a headache, in your hand is a rusty pickaxe \nThe pickaxe has a ancient inscription on it, you begin to mine your way out ");
         Game.Cave.mineworld[0][0].enterRoom(player1);

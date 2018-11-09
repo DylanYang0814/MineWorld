@@ -1,4 +1,0 @@
-package Pickaxe;
-
-interface Pickaxe {
-}

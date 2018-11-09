@@ -1,8 +1,7 @@
+//Dylan Yang APCSP Period 2-3
 package Inventory;
 
 import Game.Runner;
-import Rooms.Room;
-import Rooms.WinningRoom;
 
 public class Items {
 
@@ -17,12 +16,14 @@ public class Items {
         {
             System.out.println("With the power gathered from the ores you collected, you teleported out.");
             Runner.gameOff();
+            //Wins the game if you have enough ores
         }
 
         if(Item.equalsIgnoreCase("Uranium"))
         {
             System.out.println("The radiation from the uranium killed you ;P");
             Runner.gameOff();
+            //Dies if you got uranium
         }
 //
 //
