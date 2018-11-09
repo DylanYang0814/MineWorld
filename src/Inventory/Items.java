@@ -13,7 +13,7 @@ public class Items {
         int place = java.util.Arrays.asList(Inv).indexOf(Item);
         Count[place]++;
 
-        if (Count[2] >= 8 && Count[3] >= 5 && Count[3] >= 1)
+        if (Count[1] >= 15 && Count[2] >= 5 && Count[3] >= 1)
         {
             System.out.println("With the power gathered from the ores you collected, you teleported out.");
             Runner.gameOff();
