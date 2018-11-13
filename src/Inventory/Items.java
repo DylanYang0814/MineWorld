@@ -8,6 +8,10 @@ public class Items {
     static String[] Inv = {"Rusty Pickaxe", "Stone", "Iron", "Platinum", "Uranium"};
     static int[] Count = {0, 0, 0, 0, 0};
 
+    /**
+     * This method adds the item and detects if you have enough ores to auto win
+     * @param Item
+     */
     public static void addItem(String Item) {
         int place = java.util.Arrays.asList(Inv).indexOf(Item);
         Count[place]++;
@@ -57,6 +61,9 @@ public class Items {
 //        }
 //    }
 
+    /**
+     * This method prints out the items with the number that you have
+     */
     public static void showItem() {
         String item = "";
         for (int i = 0; i < Inv.length; i++) {

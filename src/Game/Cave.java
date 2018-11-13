@@ -11,6 +11,9 @@ public class Cave {
 
     static Room[][] mineworld = new Room[8][8];
 
+    /**
+     * This method generates the cave, fills with ores with the rarety and sets the it as not explored since the map should be closed
+     */
     public static void GenerateCave() {
         IronOre Iron = new IronOre("Iron", 30);
         PlatinumOre Platinum = new PlatinumOre("Platinum", 7);
@@ -36,6 +39,10 @@ public class Cave {
         }
     }
 
+    /**
+     * This method returns a string of the board and prints it out
+     * @return
+     */
     public static String PrintBoard() {
         String out = "";
         for (int i = 0; i < mineworld.length; i++) {
